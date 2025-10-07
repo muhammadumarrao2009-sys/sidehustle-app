@@ -1,0 +1,106 @@
+ <title>Gig Earnings Calculator - Start Earning Today!</title>
+    <style>
+        body { font-family: Arial; max-width: 800px; margin: 0 auto; padding: 20px; background: #f0f2f5; }
+        .container { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        h1 { color: #2563eb; text-align: center; margin-bottom: 10px; }
+        .calculator { background: #f8fafc; padding: 25px; border-radius: 10px; margin: 25px 0; }
+        select, button { width: 100%; padding: 15px; margin: 12px 0; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; }
+        button { background: #2563eb; color: white; font-weight: bold; cursor: pointer; transition: background 0.3s; }
+        button:hover { background: #1d4ed8; }
+        #result { background: #dbeafe; padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 5px solid #2563eb; }
+        .earnings { font-size: 24px; font-weight: bold; color: #059669; }
+        .ad-space { background: #fef3c7; padding: 15px; text-align: center; margin: 20px 0; border-radius: 8px; border: 2px dashed #d97706; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Gig Economy Earnings Calculator</h1>
+        <p style="text-align: center; color: #64748b;">Discover how much you can earn with Food Delivery, Ride Sharing, and more!</p>
+        
+        <!-- Ad Space - Future Money Maker -->
+        <div class="ad-space">
+            <p>💰 <strong>Ad Space</strong> - Future income from Google Ads</p>
+        </div>
+        
+        <div class="calculator">
+            <h2>💰 Calculate Your Daily Earnings</h2>
+            
+            <label><strong>Select Gig Type:</strong></label>
+            <select id="gigType">
+                <option value="food">🍕 Food Delivery (FoodPanda, Uber Eats)</option>
+                <option value="ride">🚗 Ride Sharing (Uber, Lyft)</option>
+                <option value="delivery">📦 Package Delivery</option>
+            </select>
+            
+            <label><strong>Hours Per Day:</strong></label>
+            <select id="hours">
+                <option value="4">4 hours</option>
+                <option value="6">6 hours</option>
+                <option value="8" selected>8 hours</option>
+                <option value="10">10 hours</option>
+            </select>
+            
+            <label><strong>City Type:</strong></label>
+            <select id="city">
+                <option value="metro">🏙️ Metro City (High Demand)</option>
+                <option value="medium">🏘️ Medium City</option>
+                <option value="small">🏡 Small City</option>
+            </select>
+            
+            <button onclick="calculateEarnings()">🎯 Calculate My Earnings</button>
+            
+            <div id="result">
+                <!-- Results will appear here -->
+            </div>
+        </div>
+        
+        <!-- Affiliate Link Space -->
+        <div style="text-align: center; margin-top: 30px; padding: 25px; background: #f0f9ff; border-radius: 10px; border: 2px dashed #2563eb;">
+            <h3>💡 Ready to Start Earning Real Money?</h3>
+            <p>Join thousands of people making extra income with gig economy apps!</p>
+            <button onclick="showSignup()" style="background: #059669; width: auto; padding: 12px 30px;">🚀 Get Started with FoodPanda</button>
+            <p><small>We'll help you sign up and start earning quickly!</small></p>
+        </div>
+        
+        <!-- Another Ad Space -->
+        <div class="ad-space">
+            <p>📈 <strong>Affiliate Area</strong> - Future commissions from signups</p>
+        </div>
+    </div>
+
+    <script>
+    function calculateEarnings() {
+        const gigType = document.getElementById('gigType').value;
+        const hours = parseInt(document.getElementById('hours').value);
+        const city = document.getElementById('city').value;
+        
+        // Base hourly rates
+        let hourlyRate = 0;
+        if (gigType === 'food') hourlyRate = 12;
+        if (gigType === 'ride') hourlyRate = 16;
+        if (gigType === 'delivery') hourlyRate = 14;
+        
+        // City multipliers
+        if (city === 'metro') hourlyRate *= 1.4;
+        if (city === 'medium') hourlyRate *= 1.0;
+        if (city === 'small') hourlyRate *= 0.8;
+        
+        const dailyEarnings = (hourlyRate * hours).toFixed(2);
+        const weeklyEarnings = (dailyEarnings * 6).toFixed(2);
+        const monthlyEarnings = (dailyEarnings * 26).toFixed(2);
+        
+        document.getElementById('result').innerHTML = `
+            <h3>🎉 Your Estimated Earnings:</h3>
+            <p class="earnings">$${dailyEarnings} per day</p>
+            <p><strong>$${weeklyEarnings} per week</strong></p>
+            <p><strong>$${monthlyEarnings} per month</strong></p>
+            <p><em>💡 Tip: Earn 20-30% more by working during peak hours (11AM-2PM, 5PM-9PM)!</em></p>
+        `;
+    }
+    
+    function showSignup() {
+        alert("🚀 Coming Soon! Direct FoodPanda/Uber signup links will be here - you'll earn commissions from every referral!");
+    }
+    </script>
+</body>
+</html>
